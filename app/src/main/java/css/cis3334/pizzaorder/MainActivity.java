@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
     public void onClickOrder(View view) {
         // ****** For the Assignment, students need to add code here to get information from the UI widgets...
 
-        String orderDescription = "No orders yet";
+        String orderDescription = pizzaOrderSystem.OrderPizza( "Peperoni", "Large", false);
 
         // ****** For the Practice Activity, students need to call to OrderPizza here
         // ****** For the Assignment, students will modify the order to fit the type of pizza the user selects using the UI widgets
@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
         Toast.makeText(getApplicationContext(), "You have ordered a "+orderDescription , Toast.LENGTH_LONG).show();
         // add this pizza to the textview the lists the pizzas
         txtPizzasOrdered.append(orderDescription+"\n");
+
+        txtTotal.append("Total Due: " + pizzaOrderSystem.getTotalBill());
 
     }
 }
