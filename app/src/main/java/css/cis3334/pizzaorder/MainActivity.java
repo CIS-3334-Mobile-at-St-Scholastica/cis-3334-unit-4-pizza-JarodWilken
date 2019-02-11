@@ -60,8 +60,27 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
 
     public void onClickOrder(View view) {
         // ****** For the Assignment, students need to add code here to get information from the UI widgets...
+        String orderDescription = "";
 
-        String orderDescription = pizzaOrderSystem.OrderPizza( "Peperoni", "Large", false);
+        if (rbSmall.isChecked() && chkbxCheese.isChecked()){
+            orderDescription = pizzaOrderSystem.OrderPizza( spinnerToppings.getSelectedItem().toString(), "Small", true);
+        }
+        else if(rbSmall.isChecked() && !chkbxCheese.isChecked()){
+            orderDescription = pizzaOrderSystem.OrderPizza( spinnerToppings.getSelectedItem().toString(), "Small", false);
+        }
+        else if (rbMedium.isChecked() && chkbxCheese.isChecked()){
+            orderDescription = pizzaOrderSystem.OrderPizza( spinnerToppings.getSelectedItem().toString(), "medius", true);
+        }
+        else if (rbMedium.isChecked() && !chkbxCheese.isChecked()){
+            orderDescription = pizzaOrderSystem.OrderPizza( spinnerToppings.getSelectedItem().toString(), "medium", false);
+        }
+        else if (rbLarge.isChecked() && chkbxCheese.isChecked()) {
+            orderDescription = pizzaOrderSystem.OrderPizza( spinnerToppings.getSelectedItem().toString(), "Large", true);
+        }
+        else if (rbLarge.isChecked() && chkbxCheese.isChecked()){
+            orderDescription = pizzaOrderSystem.OrderPizza( spinnerToppings.getSelectedItem().toString(), "Large", false);
+        }
+
 
         // ****** For the Practice Activity, students need to call to OrderPizza here
         // ****** For the Assignment, students will modify the order to fit the type of pizza the user selects using the UI widgets
